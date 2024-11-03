@@ -1,32 +1,163 @@
-#navegacao{
+/* Estilos gerais da navegação */
+#navegacao {
     width: 100%;
     height: 80px;
-    background-color: var(--roxoEscuro);
-    color: var(--corBranco);
+
+    background: linear-gradient(90deg, #F47C7C 0%, #F8BBD0 50%, #B3CDE0 100%);
+
+
+
+    color: #4A0042;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    position: fixed; /* Travar a posição do meu elemento.*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 10px;
+    padding: 0 20px;
+    transition: height 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#navegacao ul{
+/* Efeito de contração do menu ao rolar a página */
+body.scrolled #navegacao {
+    height: 60px;
+    background: var(--roxoEscuro);
+}
+
+/* Estilo da imagem no cabeçalho da navegação */
+#navegacao img {
+    width: 70px;
+    height: auto;
+    margin-bottom: -20px;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+#navegacao img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Estilo da lista de itens no cabeçalho da navegação */
+#navegacao ul {
     display: flex;
     flex-direction: row;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
-#navegacao a{
-    color: var(--corBranco);
-    font-size: var(--fonteParagrafo);
+/* Estilo dos links no cabeçalho da navegação */
+#navegacao a {
+    color: #4A1F3B;
+    font-family: 'Crimson Text', serif;
+    font-size: 28px;
     margin-right: 30px;
+    text-decoration: none;
+    position: relative;
+    transition: font-size 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
-#navegacao a:hover{
-    color: var(--roxoClaro);
+#navegacao a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #F47C7C;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+#navegacao a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+#navegacao a:hover {
+    color: #A14D2A;
     font-size: 30px;
+    text-shadow: 0 0 8px rgba(165, 147, 224, 0.7);
 }
 
-#navegacao h1:hover{
-    color: var(--roxoClaro);
+/* Estilo do título no cabeçalho da navegação */
+#navegacao h1 {
+    font-size: 40px;
+    margin: 0;
+    transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+#navegacao h1:hover {
+    color: #F8BBD0;
     font-size: 50px;
+}
+
+/* Estilo do h2 no cabeçalho da navegação */
+#navegacao h2 {
+    position: relative;
+    color: #4A1F3B;
+    font-family: 'Crimson Text', serif;
+    font-size: 28px;
+    margin: 0;
+    transition: font-size 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+#navegacao h2::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #F47C7C;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+#navegacao h2:hover {
+    color: #A14D2A;
+    font-size: 30px;
+    text-shadow: 0 0 8px rgba(165, 147, 224, 0.7);
+}
+
+#navegacao h2:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Efeito hover nos caracteres < > */
+.caractere-maior {
+    color: #4A1F3B;
+    transition: color 0.3s ease;
+}
+
+#navegacao img:hover~.caractere-maior,
+#navegacao .caractere-maior:hover,
+#navegacao .caractere-maior:hover~img {
+    color: #4A1F3B;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #navegacao {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    #navegacao ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #navegacao a {
+        margin: 10px 0;
+        font-size: 24px;
+    }
+
+    #navegacao h1 {
+        font-size: 32px;
+    }
 }

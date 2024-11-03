@@ -1,5 +1,17 @@
-#rodape{
+#rodape {
     text-align: center;
-    padding: 40px 0px;
+    padding: 40px 0;
+    font-family: 'Crimson Text', serif;
     font-size: var(--fonteParagrafo);
+    background: linear-gradient(90deg, #B3CDE0 0%, #F8BBD0 50%, #F47C7C 100%);
+
+
+
+    color: #4A1F3B;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
